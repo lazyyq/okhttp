@@ -251,9 +251,11 @@ public final class Request {
     public Builder method(String method, @Nullable RequestBody body) {
       if (method == null) throw new NullPointerException("method == null");
       if (method.length() == 0) throw new IllegalArgumentException("method.length() == 0");
+      /*
       if (body != null && !HttpMethod.permitsRequestBody(method)) {
         throw new IllegalArgumentException("method " + method + " must not have a request body.");
       }
+      */
       if (body == null && HttpMethod.requiresRequestBody(method)) {
         throw new IllegalArgumentException("method " + method + " must have a request body.");
       }
